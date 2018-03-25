@@ -1,0 +1,47 @@
+# nagios
+
+Refer this doc:    https://blog.serverdensity.com/howto-install-nagios-in-30-minutes-and-jumpstart-your-monitoring/
+
+      ###############Pre-requisites###########
+      apt-get update
+      sudo apt-get install apache2 libapache2-mod-php5 php5 apache2-utils
+      sudo a2enmod rewrite
+      sudo a2enmod cgi
+      sudo addgroup --system nagios
+      sudo addgroup --system nagioscmd
+     
+     ##################install nagios server ####################
+     curl -L -O https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.1.1.tar.gz
+     tar xvzf nagios-4.1.1.tar.gz
+     cd nagios-4.1.1/
+     ls -lrt
+     make all
+     sudo make install
+     sudo service apache2 restart
+     
+     
+     ##################  nagios plugins  ###########################
+     $ curl -L -O http://nagios-plugins.org/download/nagios-plugins-2.1.1.tar.gz
+     cd nagios-plugins-2.1.1/
+     make
+     sudo make install
+     
+     
+     ################## nrpe client  ##################
+     curl -L -O http://downloads.sourceforge.net/project/nagios/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz 
+     tar -xf nrpe-2.15.tar.gz 
+     cd nrpe-2.15/
+     ls -lrt
+     make all
+     sudo make install
+     sudo make install-xinetd
+     sudo make install-daemon-config
+     ifconfig
+     sudo vi /etc/xinetd.d/nrpe
+     sudo service xinetd restart
+     sudo vi /usr/local/nagios/etc/nagios.cfg
+     sudo mkdir /usr/local/nagios/etc/servers
+     sudo vi /usr/local/nagios/etc/objects/contacts.cfg
+     sudo vi /usr/local/nagios/etc/objects/commands.cfg
+     sudo service nagios start
+     ifconfig

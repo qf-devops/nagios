@@ -45,3 +45,18 @@ Refer this doc:    https://blog.serverdensity.com/howto-install-nagios-in-30-min
      sudo vi /usr/local/nagios/etc/objects/commands.cfg
      sudo service nagios start
      ifconfig
+     
+     
+     
+     
+     
+     ###########
+     
+     
+     nrpe client:
+     
+      sudo apt-get install nagios-plugins nagios-nrpe-server
+       sudo vi /etc/nagios/nrpe.cfg
+  
+  
+     add server name in allowed_host in nrpe.cfg file.

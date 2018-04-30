@@ -28,6 +28,15 @@ Refer this doc:    https://blog.serverdensity.com/howto-install-nagios-in-30-min
      
      
      ################## nrpe client  ##################
+     
+     https://tecadmin.net/install-nrpe-on-ubuntu/
+     sudo apt-get update
+      sudo apt-get install nagios-nrpe-server nagios-plugins
+      allowed_hosts=127.0.0.1, 192.168.1.100
+      sudo /etc/init.d/nagios-nrpe-server restart
+      
+      ###################
+     
      curl -L -O http://downloads.sourceforge.net/project/nagios/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz 
      tar -xf nrpe-2.15.tar.gz 
      cd nrpe-2.15/
